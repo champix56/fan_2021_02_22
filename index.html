@@ -12,11 +12,11 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     
 </head>
-<body>
+<body ng-app ng-init="title='ngStore';name='Alexandre';Age=26;montant=452.635">
     <div id="main">
         <div id="navbar">
             
-            <nav class="navbar navbar-default" role="navigation">
+            <nav class="navbar navbar-inverse" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -25,7 +25,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Title</a>
+                    <a class="navbar-brand" href="#">{{title}}</a>
                 </div>
             
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,14 +50,19 @@
                                 <li><a href="#">Something else here</a></li>
                                 <li><a href="#">Separated link</a></li>
                             </ul>
+
                         </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </nav>
         </div><!-- fin #navbar -->
         <div id="wrapper">
-            <h1>Voici le corp de mon app</h1>
+            <h1>Bonjour {{name}}</h1>
+            <h2>Vous aurez {{Age + 10}} dans 10 ans</h2>
+            <h3>Vous possedez : {{montant|currency:'&euro;':3}}</h3>
+
         </div>
     </div>  
+    <script src="./node_modules/angular/angular.js"></script>
 </body>
 </html>
