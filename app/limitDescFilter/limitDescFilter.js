@@ -1,14 +1,10 @@
 (function() {
     'use strict';
-
     angular
         .module('app')
         .filter('limitDesc', Filter);
-
     function Filter() {
         return FilterFilter;
-
-        ////////////////
         /**
          * Limit la taille d'une chaine et ajoute '...' si plus long que maxLength
          * @param {String} Params valeur a tronquer
