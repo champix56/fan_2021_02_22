@@ -15,7 +15,7 @@
         ////////////////
 
         function activate() {
-            $http({method:'GET',url:'http://desorbaix.alexandre.free.fr/phpRest/categories/'})
+            $http({method:'GET',url:'http://localhost:5629/categories'})
                 .then(  function success(response){
                             console.log(this,response);
                             vm.categories=response.data;
