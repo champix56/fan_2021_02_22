@@ -127,11 +127,11 @@
 
                         <div class="produits-produit-col-b">
                             <h3>Description</h3>
-                            {{produit.description|limitTo:12}}...
+                            {{produit.description|limitDesc:12}}
                         </div>
 
                         <div class="produits-produit-col-c">
-                            <h1>{{produit.prix}}</h1>
+                            <h1>{{produit.prix|myCurrency:'€':4}}</h1>
                             <button type="button" class="btn btn-warning">Panier</button>
                             <button type="button" class="btn btn-success">voir</button>
 
@@ -160,6 +160,8 @@
     <script src="app/produitCtrl/produitCtrl.js"></script>
     <script src="app/produitsCtrl/produitsCtrl.js"></script>
     <script src="app/categorieCtrl/categorieCtrl.js"></script>
+    <script src="app/myCurrencyFilter/myCurrencyFilter.js"></script>
+    <script src="app/limitDescFilter/limitDescFilter.js"></script>
 </body>
 
 </html>
