@@ -11,7 +11,25 @@
     <link rel="stylesheet" media="screen" href="//netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <script src="//code.jquery.com/jquery.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
+    <style type="text/css">
+        .produits-produit img {
+            height: 128px;
+            max-width: 256px;
+            size: auto;
+        }
+        .produits-produit .produits-produit-content{
+            display:flex;
+        }
+        .produits-produit .produits-produit-col-c {
+            flex: 1;
+        }
+        .produits-produit .produits-produit-col-b {
+            flex: 3
+        }
+        .produits-produit .produits-produit-col-a {
+            flex: 1;
+        }
+    </style>
 </head>
 
 <body ng-app="app" ng-init="title='ngStore';name='Alexandre';Age=26;montant=452.635">
@@ -68,24 +86,28 @@
             <div class="form-produit" ng-controller="produitCtrl as prod" style="padding:15px">
                 <h2>Nouveau produit</h2>
                 <form>
-                    <label for="prod_id">ID:</label><br/>
-                    <input type="text" name="prod_id" id="prod_id" disabled value="{{prod.id}}" /><br/>
-                    <label for="prod_nom">nom:</label><br/>
-                    <input type="text" name="prod_nom" id="prod_nom" 
-                        ng-model="prod.nom" ng-model_options="{debounce : 800 }"/><br/>
-                    <label for="prod_prix">Prix:</label><br/>
-                    <input type="number" name="prod_prix" id="prod_prix" min="0" step="0.01" ng-model="prod.prix"/><br/>
-                    <label for="prod_categorie">Categorie :</label><br/>
-                    
-                    <select name="prod_categorie" id="prod_categorie" ng-controller="categorieCtrl as cat" ng-model="prod.categorie">
-                        
-                        <option ng-repeat="categorie in cat.categories" ng-value="{{categorie}}">{{categorie.name}}</option>
-                    
-                    </select><br/>
-                    
-                    
-                    <label for="prod_desc">description:</label><br/>
-                    <textarea name="prod_desc" id="prod_desc" cols="30" rows="10" ng-model="prod.description"></textarea><br/>
+                    <label for="prod_id">ID:</label><br />
+                    <input type="text" name="prod_id" id="prod_id" disabled value="{{prod.id}}" /><br />
+                    <label for="prod_nom">nom:</label><br />
+                    <input type="text" name="prod_nom" id="prod_nom" ng-model="prod.nom"
+                        ng-model_options="{debounce : 800 }" /><br />
+                    <label for="prod_prix">Prix:</label><br />
+                    <input type="number" name="prod_prix" id="prod_prix" min="0" step="0.01"
+                        ng-model="prod.prix" /><br />
+                    <label for="prod_categorie">Categorie :</label><br />
+
+                    <select name="prod_categorie" id="prod_categorie" ng-controller="categorieCtrl as cat"
+                        ng-model="prod.categorie">
+
+                        <option ng-repeat="categorie in cat.categories" ng-value="{{categorie}}">{{categorie.name}}
+                        </option>
+
+                    </select><br />
+
+
+                    <label for="prod_desc">description:</label><br />
+                    <textarea name="prod_desc" id="prod_desc" cols="30" rows="10"
+                        ng-model="prod.description"></textarea><br />
                     <!-- validation du form -->
                     <input type="submit" class="btn btn-success" value="Ok">
                     <input type="reset" class="btn btn-warning" value="reset">
@@ -94,12 +116,30 @@
             </div>
             <div class="produits" ng-controller="produitsCtrl as prods">
                 <h1>Liste produits :</h1>
-                {{prods | json}}
-                <div ng-repeat="produit in prods.produits" class="produits-produit" id="produits-produit-{{produit.id}}">
-                    un produit {{produit.id}}:{{produit.nom}}
+                <!-- {{prods | json}} -->
+                <div ng-repeat="produit in prods.produits" class="produits-produit"
+                    id="produits-produit-{{produit.id}}">
+                    <h1>{{produit.nom}}</h1>
+                    <div class="produits-produit-content">
+                        <div class="produits-produit-col-a">
+                            <img ng-src="{{produit.img}}" alt="" />
+                        </div>
+
+                        <div class="produits-produit-col-b">
+                            <h3>Description</h3>
+                            {{produit.description|limitTo:12}}...
+                        </div>
+
+                        <div class="produits-produit-col-c">
+                            <h1>{{produit.prix}}</h1>
+                            <button type="button" class="btn btn-warning">Panier</button>
+                            <button type="button" class="btn btn-success">voir</button>
+
+                        </div>
+                    </div>
                 </div>
             </div>
-            <hr/>
+            <hr />
             <div class="produit" ng-controller="produitCtrl as prod">
                 <h1>{{prod.nom}}</h1>
                 <div class="col-lg-6">
