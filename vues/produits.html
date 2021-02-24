@@ -16,7 +16,7 @@
 
             <div class="produits-produit-col-c">
                 <h1>{{produit.prix|myCurrency:'€':4}}</h1>
-                <button type="button" class="btn btn-warning">Panier</button>
+                <button type="button" class="btn btn-warning" ng-click="addtocartclick(produit)">Panier</button>
                 <button type="button" class="btn btn-success" ng-click="onshowproductclick(produit)">voir</button>
 
             </div>

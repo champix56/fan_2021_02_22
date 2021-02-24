@@ -10,5 +10,6 @@
         var vm = this;
         this.produits = prdsrvc.produits;
         $scope.onshowproductclick=prdsrvc.selectProductToView;
+        $scope.addtocartclick=prdsrvc.addCart;
     }
 })();

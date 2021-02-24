@@ -2,7 +2,7 @@
     <h2>Mon panier</h2>
     <div class="panier-produit" ng-repeat="article in cart.panier" style="display:flexbox">
 
-        <div style="flex:1"><img ng-src="{{article.img}}" alt=""></div>
+        <div style="flex:1"><img ng-src="{{article.img}}" alt="" style="height:64px;max-width:80px;size:auto;"></div>
         <div style="flex:2">{{article.name}}</div>
         <div style="flex:1">{{article.quant}}</div>
         <div style="flex:1">{{article.quant * article.prix | myCurrency:'€':2}}</div>

@@ -17,8 +17,9 @@
 
         this.addCart=function(produit){
             var pr=vm.panier.find(e=>produit.id===e.id)
-            if(undefined===produit){pr.quant=1;vm.panier.push(pr);}
+            if(undefined===pr){produit.quant=1;vm.panier.push(produit);}
             else{pr.quant++;}
+            vm.totaux.total+=produit.prix;
         }
         this.selectProductToView = function (produit) {
             console.log('un produit a ete selectionne' ,produit);
