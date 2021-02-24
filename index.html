@@ -78,6 +78,12 @@
                 </div><!-- /.navbar-collapse -->
             </nav>
         </div><!-- fin #navbar -->
+        <!-- restrict: 'E', -->
+        <mon-panier></mon-panier>
+        <!-- restrict: 'A', -->
+        <!-- <div mon-panier=""></div> -->
+        <!-- restrict: 'C', -->
+        <!-- <div class="mon-panier"></div> -->
         <div id="wrapper" ng-view>
             <h1>Bonjour {{name}}</h1>
             <h2>Vous aurez {{Age + 10}} dans 10 ans</h2>
@@ -95,6 +101,7 @@
     <!-- mes fichiers d'app angular -->
     <script src="app/app.js"></script>
     <script src="app/produitsSrvc/produitsSrvc.js"></script>
+    <script src="app/panierDirective/panierDirective.js"></script>
     <script src="app/produitCtrl/produitCtrl.js"></script>
     <script src="app/produitsCtrl/produitsCtrl.js"></script>
     <script src="app/categorieCtrl/categorieCtrl.js"></script>

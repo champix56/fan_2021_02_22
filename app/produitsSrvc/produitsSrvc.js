@@ -12,7 +12,14 @@
         this.produit = {};
         this.produitEmpty={empty:true};
         this.categories = [];
+        this.panier=[];
+        this.totaux={total:0};
 
+        this.addCart=function(produit){
+            var pr=vm.panier.find(e=>produit.id===e.id)
+            if(undefined===produit){pr.quant=1;vm.panier.push(pr);}
+            else{pr.quant++;}
+        }
         this.selectProductToView = function (produit) {
             console.log('un produit a ete selectionne' ,produit);
             console.log(this,vm);

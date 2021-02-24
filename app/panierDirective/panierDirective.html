@@ -1,5 +1,6 @@
-<div id="panier" ng-show="cart.panier.length">
-    <div class="panier-produit" ng-repeat="article in cart.panier">
+<div id="panier" ng-show="cart.panier.length" style="float:right">
+    <h2>Mon panier</h2>
+    <div class="panier-produit" ng-repeat="article in cart.panier" style="display:flexbox">
 
         <div style="flex:1"><img ng-src="{{article.img}}" alt=""></div>
         <div style="flex:2">{{article.name}}</div>
@@ -9,6 +10,6 @@
     </div>
     <div>
         <div style="flex:3;text-align:right">total:</div>
-        <div style="flex:3;text-align:right">{{cart.totaux.total|myCurrency}}</div>
+        <div style="flex:1;text-align:right">{{cart.totaux.total|myCurrency}}</div>
     </div>
 </div>
