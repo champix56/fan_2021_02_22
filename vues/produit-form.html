@@ -1,0 +1,32 @@
+<div class="form-produit" style="padding:15px" >
+<!-- ng-show="!prod.isEmpty.empty"> -->
+    <h2>Nouveau produit</h2>
+    <form ng-submit="onSubmitForm()">
+        <label for="prod_id">ID:</label><br />
+        <input type="text" name="prod_id" id="prod_id" disabled value="{{prod.produit.id}}" /><br />
+        <label for="prod_nom">nom:</label><br />
+        <input type="text" name="prod_nom" id="prod_nom" ng-model="prod.produit.nom"
+            ng-model_options="{debounce : 800 }" /><br />
+        <label for="prod_prix">Prix:</label><br />
+        <input type="number" name="prod_prix" id="prod_prix" min="0" step="0.01"
+            ng-model="prod.produit.prix" /><br />
+        <label for="prod_categorie">Categorie :</label><br />
+
+        <select name="prod_categorie" id="prod_categorie" ng-controller="categorieCtrl as cat"
+            ng-model="prod.produit.categorieId">
+
+            <option ng-repeat="categorie in cat.categories" ng-value="{{categorie.id}}">{{categorie.name}}
+            </option>
+
+        </select><br />
+
+
+        <label for="prod_desc">description:</label><br />
+        <textarea name="prod_desc" id="prod_desc" cols="30" rows="10"
+            ng-model="prod.produit.description"></textarea><br />
+        <!-- validation du form -->
+        <input type="submit" class="btn btn-success" value="Ok">
+        <input type="reset" class="btn btn-warning" value="reset">
+    </form>
+    {{prod|json}}
+</div>

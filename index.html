@@ -46,14 +46,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">{{title}}</a>
+                    <a class="navbar-brand" href="#!/home">{{title}}</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#">Link</a></li>
-                        <li><a href="#">Link</a></li>
+                        <li><a href="#!/produits">listes</a></li>
+                        <li><a href="#!/produits/1">produit 1</a></li>
                     </ul>
                     <form class="navbar-form navbar-left" role="search">
                         <div class="form-group">
@@ -78,85 +78,23 @@
                 </div><!-- /.navbar-collapse -->
             </nav>
         </div><!-- fin #navbar -->
-        <div id="wrapper">
+        <div id="wrapper" ng-view>
             <h1>Bonjour {{name}}</h1>
             <h2>Vous aurez {{Age + 10}} dans 10 ans</h2>
             <h3>Vous possedez : {{montant|currency:'&euro;':3}}</h3>
             <hr />
-            <div class="form-produit" ng-controller="produitCtrl as prod" style="padding:15px">
-                <h2>Nouveau produit</h2>
-                <form>
-                    <label for="prod_id">ID:</label><br />
-                    <input type="text" name="prod_id" id="prod_id" disabled value="{{prod.id}}" /><br />
-                    <label for="prod_nom">nom:</label><br />
-                    <input type="text" name="prod_nom" id="prod_nom" ng-model="prod.nom"
-                        ng-model_options="{debounce : 800 }" /><br />
-                    <label for="prod_prix">Prix:</label><br />
-                    <input type="number" name="prod_prix" id="prod_prix" min="0" step="0.01"
-                        ng-model="prod.prix" /><br />
-                    <label for="prod_categorie">Categorie :</label><br />
-
-                    <select name="prod_categorie" id="prod_categorie" ng-controller="categorieCtrl as cat"
-                        ng-model="prod.categorie">
-
-                        <option ng-repeat="categorie in cat.categories" ng-value="{{categorie}}">{{categorie.name}}
-                        </option>
-
-                    </select><br />
-
-
-                    <label for="prod_desc">description:</label><br />
-                    <textarea name="prod_desc" id="prod_desc" cols="30" rows="10"
-                        ng-model="prod.description"></textarea><br />
-                    <!-- validation du form -->
-                    <input type="submit" class="btn btn-success" value="Ok">
-                    <input type="reset" class="btn btn-warning" value="reset">
-                </form>
-                {{prod|json}}
-            </div>
-            <div class="produits" ng-controller="produitsCtrl as prods">
-                <h1>Liste produits :</h1>
-                <!-- {{prods | json}} -->
-                <div ng-repeat="produit in prods.produits" class="produits-produit"
-                    id="produits-produit-{{produit.id}}">
-                    <h1>{{produit.nom}}</h1>
-                    <div class="produits-produit-content">
-                        <div class="produits-produit-col-a">
-                            <img ng-src="{{produit.img}}" alt="" />
-                        </div>
-
-                        <div class="produits-produit-col-b">
-                            <h3>Description</h3>
-                            {{produit.description|limitDesc:12}}
-                        </div>
-
-                        <div class="produits-produit-col-c">
-                            <h1>{{produit.prix|myCurrency:'€':4}}</h1>
-                            <button type="button" class="btn btn-warning">Panier</button>
-                            <button type="button" class="btn btn-success">voir</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+          
+          <!-- anciennes presence de representation de la lise de produits -->
             <hr />
-            <div class="produit" ng-controller="produitCtrl as prod">
-                <h1>{{prod.nom}}</h1>
-                <div class="col-lg-6">
-                    <img ng-src="{{prod.img}}" alt="">
-                </div>
-                <div class="col-lg-2">
-                    {{prod.description}}
-                    <br />
-                    <h2>prix : {{prod.prix}}</h2>
-                    <br />
-                    <button type="button" class="btn btn-success">Ajout panier</button>
-                </div>
-            </div>
+           
         </div>
     </div>
+    <!-- dependances angular -->
     <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <!-- mes fichiers d'app angular -->
     <script src="app/app.js"></script>
+    <script src="app/produitsSrvc/produitsSrvc.js"></script>
     <script src="app/produitCtrl/produitCtrl.js"></script>
     <script src="app/produitsCtrl/produitsCtrl.js"></script>
     <script src="app/categorieCtrl/categorieCtrl.js"></script>

@@ -1,0 +1,25 @@
+<div class="produits" >
+    <!-- ng-controller="produitsCtrl as prods" chargé par la route -->
+    <h1>Liste produits :</h1>
+    <!-- {{prods | json}} -->
+    <div ng-repeat="produit in prods.produits" class="produits-produit"
+        id="produits-produit-{{produit.id}}">
+        <h1>{{produit.categorie.name}}/{{produit.nom}}</h1>
+        <div class="produits-produit-content">
+            <div class="produits-produit-col-a">
+                <img ng-src="{{produit.img}}" alt="" />
+            </div>
+            <div class="produits-produit-col-b">
+                <h3>Description</h3>
+                {{produit.description|limitDesc:12}}
+            </div>
+
+            <div class="produits-produit-col-c">
+                <h1>{{produit.prix|myCurrency:'€':4}}</h1>
+                <button type="button" class="btn btn-warning">Panier</button>
+                <button type="button" class="btn btn-success" ng-click="onshowproductclick(produit)">voir</button>
+
+            </div>
+        </div>
+    </div>
+</div>

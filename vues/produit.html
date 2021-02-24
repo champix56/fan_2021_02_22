@@ -1,0 +1,14 @@
+<div class="produit">
+     <!-- ng-hide="prod.isEmpty.empty"> -->
+    <h1>{{prod.produit.nom}}</h1>
+    <div class="col-lg-6">
+        <img ng-src="{{prod.produit.img}}" alt="">
+    </div>
+    <div class="col-lg-2">
+        {{prod.produit.description}}
+        <br />
+        <h2>prix : {{prod.produit.prix}}</h2>
+        <br />
+        <button type="button" class="btn btn-success">Ajout panier</button>
+    </div>
+</div>

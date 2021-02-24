@@ -1,20 +1,51 @@
 {
-    "categories":[
-        {"id":0,"name":"boisson"},
-        {"id":1,"name":"laitier"},
-        {"id":2,"name":"dessert"}
-    ],
-    "produits":[
-        { "id": 0, "nom": "Coca cola 1.5", "description": "Fantastique boisson médicinnal historiquement issue de feuilles de Coca", "prix": 2.54, "stock": 10, "categorieId":  0, "img": "img/produits/coca.png" },
-        { "id": 1, "nom": "Kouign aman", "description": "Fantastique dessert breton, LE 4/4 breton mais sous 3/3 (1/3 pate, 1/3 beurre, 1/3 surcre)", "prix": 8, "stock": 10, "categorieId":  2, "img": "img/produits/kouign.png" },
-        { "id": 2, "nom": "beurre salé 5%", "description": "delicieux beurre salé en exces", "prix": 3.54, "stock": 10, "categorieId":  1, "img": "img/produits/sale.png" },
-        { "id": 3, "nom": "breizh cola 1.5", "description": "Fantastique boisson médicinnal historiquement issue d'eau de mer ;-)'", "prix": 1.54, "stock": 10, "categorieId":  0, "img": "img/produits/bzh.png" }
-    ],
-    "shop":{
-        "raisonSocial":"My angular shop",
-        "adresse":"10 rue du port",
-        "ville":"erdeven",
-        "cp":"56410"
+  "categories": [
+    {
+      "id": 0,
+      "name": "boisson"
+    },
+    {
+      "id": 1,
+      "name": "laitier"
+    },
+    {
+      "id": 2,
+      "name": "dessert"
     }
-
+  ],
+  "produits": [
+    {
+      "id": 0,
+      "nom": "Coca cola 1.5",
+      "description": "hello",
+      "prix": 2.54,
+      "stock": 10,
+      "categorieId": 1,
+      "img": "img/produits/coca.png"
+    },
+    {
+      "id": 2,
+      "nom": "beurre salé 5%",
+      "description": "delicieux beurre salé en exces",
+      "prix": 3.54,
+      "stock": 10,
+      "categorieId": 2,
+      "img": "img/produits/sale.png"
+    },
+    {
+      "id": 3,
+      "nom": "breizh cola 1.5",
+      "description": "Fantastique boisson médicinnal historiquement issue d'eau de mer ;-)'",
+      "prix": 1.54,
+      "stock": 10,
+      "categorieId": 0,
+      "img": "img/produits/bzh.png"
+    }
+  ],
+  "shop": {
+    "raisonSocial": "My angular shop",
+    "adresse": "10 rue du port",
+    "ville": "erdeven",
+    "cp": "56410"
+  }
 }
